@@ -1,0 +1,93 @@
+<div data-remodal-id="calculation" class="calculation-modal" id="calculationModal" data-rate="{{rate}}">
+  <div class="calculation-modal-title">费用试算</div>
+    <div class="calculation-modal-content">
+      <div class="cal-form">
+        <p class="mp">
+          <span class="tt">商品金额：</span>
+          <input class="calItemPrice" type="text" style="width: 170px;" /> 円
+        </p>
+        <p class="mp">
+          <span class="tt">含8%消费税：</span>
+          <select class="calExciseTax">
+            <option value="0">无</option>
+            <option value="0.08">有</option>
+          </select>
+          <a href="#">说明</a>
+        </p>
+        <p class="mp">
+          <span class="tt">预估当地运费：</span>
+          <input type="text" class="calLocalFreight"  style="width: 80px;" /> 円
+          <a href="#">说明</a>
+        </p>
+        <p class="mp">
+          <span class="tt">预估商品重量：</span>
+          <input type="text" class="calItemWeight" style="width: 50px;"/> 公斤
+        </p>
+        <p class="mp">
+          <span class="tt">国际配送方式：</span>
+          <select class="calItemMode" >
+            <option value="EMS">EMS</option>
+            <option value="航空件">航空件</option>
+            <option value="SAL">SAL</option>
+            <option value="船运">船运</option>
+          </select>
+          <a href="#">说明</a>
+        </p>
+        <p class="mp">
+          <span class="tt">预估包装费用：</span>
+          <select class="calPackingCost">
+            <option value="200">200</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+            <option value="1500">1500</option>
+          </select>
+          <a href="#">说明</a>
+        </p>
+        <p class="btnption">
+          <button class="btn btn-sm btn-danger js-calculation" style="margin-right: 10px;">立即试算</button>
+          <button class="btn btn-sm btn-default js-reset">重置</button>
+        </p>
+      </div>
+      <div class="cal-result">
+        <div class="cal-result-box">
+          <h3 class="cal-res-hd clear">
+            <span class="tt">付款金额</span>
+            <span class="tf">近日汇率：<em data-bind-calculation="huilv">0</em></span>
+          </h3>
+          <div class="cal-res-bd">
+            <p class="clear">
+              <span class="t">商品金额</span>
+              <span class="n"><em data-bind-calculation="spje">0</em> 日元</span>
+            </p>
+            <p class="clear">
+              <span class="t">商品税金</span>
+              <span class="n"><em data-bind-calculation="spsj">0</em> 日元</span>
+            </p>
+            <p class="clear">
+              <span class="t">日本当地运费</span>
+              <span class="n"><em data-bind-calculation="rbddyf">0</em> 日元</span>
+            </p>
+            <p class="clear">
+              <span class="t">国际运费</span>
+              <span class="n"><em data-bind-calculation="gjyf">0</em> 日元</span>
+            </p>
+            <p class="clear">
+              <span class="t">包装费</span>
+              <span class="n"><em data-bind-calculation="bzf">0</em> 日元</span>
+            </p>
+
+            <p class="clear">
+              <span class="t">银行汇款手续费</span>
+              <span class="n"><em data-bind-calculation="yhhksxf">0</em> 日元</span>
+            </p>
+          </div>
+          <div class="cal-res-ft">
+            <p class="clear">
+              <span class="t">合计：<em data-bind-calculation="heji">0</em> <em class="text-red">元</em></span>
+              <span class="n">（<em data-bind-calculation="hejirmb">0</em>日元）</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{{!-- 分类 --}}
+<ul class="service-bd">
+  {{#each data}}
+  <li>
+    <a href="/findItem/?category={{yahoo_id}}">{{caption}}</a>
+  </li>
+  {{/each}}
+</ul>
+<div class="service-float">
+  {{#each data}}
+  <div class="service-float-item">
+    {{#each _child}}
+    <div class="service-panel clear">
+      <h5><a href="/findItem/?category={{yahoo_id}}">{{caption}}</a></h5>
+      <p>
+        {{#each _child}}
+        <a href="/findItem/?category={{yahoo_id}}">{{caption}}</a>
+        {{/each}}
+      </p>
+    </div>
+    {{/each}}
+  </div>
+  {{/each}}
+</div>

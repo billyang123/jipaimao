@@ -1,0 +1,163 @@
+{
+	"status":"SUCCESS",
+	"data":{
+		"subData": {
+			"exchangeRate": 0.061,
+			"userInfo": {
+				"balance": 9989,
+				"account": "1044567743@qq.com",
+				"bond": 4566,
+				"integral": 665
+			},
+			"menuList": [
+				{
+					"title": "竞拍管理",
+					"key": "bidding",
+					"list": [
+						{
+							"title": "竞标状态",
+							"key": "biddingState" 
+						},
+						{
+							"title": "得标订单",
+							"key": "bidOrder" 
+						}
+					] 
+				},
+				{
+					"title": "代购管理",
+					"key": "purchase",
+					"list": [
+						{
+							"title": "代购订单",
+							"key": "purchaseList" 
+						}
+					] 
+				},
+				{
+					"title": "出货管理",
+					"key": "shipment",
+					"list": [
+						{
+							"title": "已到库订单",
+							"key": "alreadyToLibrary" 
+						},
+						{
+							"title": "出货订单",
+							"key": "shipmentList" 
+						}
+					] 
+				},
+				{
+					"title": "收藏夹",
+					"key": "favorite",
+					"list": [
+						{
+							"title": "收藏的商品",
+							"key": "items" 
+						},
+						{
+							"title": "收藏的卖家",
+							"key": "seller" 
+						},
+						{
+							"title": "黑名单卖家",
+							"key": "blackSeller" 
+						}
+					] 
+				},
+				{
+					"title": "账户管理",
+					"key": "account",
+					"list": [
+						{
+							"title": "个人资料",
+							"key": "personalData" 
+						},
+						{
+							"title": "密码修改",
+							"key": "passwordModification" 
+						},
+						{
+							"title": "账户认证",
+							"key": "authentication" 
+						},
+						{
+							"title": "收货地址管理",
+							"key": "address" 
+						},
+						{
+							"title": "交易记录",
+							"key": "transactionRecord"
+						},
+						{
+							"title": "提现",
+							"key": "withdrawals"
+						}
+					] 
+				}
+			]
+		},
+		"myreminding": {
+			"replyCount": 98,
+			"giftCard": 1
+		},
+		"bid": {
+			"reservation": 10,
+			"bidders": 23,
+			"surpassed": 45,
+			"bidCount": 34,
+			"bidFailCount": 56
+		},
+		"orderreminding": {
+			"pdPayCount": 20,
+			"ydkdtzchCount": 23,
+			"RetaPayCount": 12,
+			"shippedCount": 8
+		},
+		"bulletin": [
+			{
+				"url":"https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_15267625050638438747%22%7D&n_type=0&p_from=1",
+				"title": "特朗普政府关门！数十万雇员休假，每天损失65亿美元"
+			},
+			{
+				"url":"https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_12815891698139310601%22%7D&n_type=0&p_from=1",
+				"title": "两部门：消费返利及虚拟货币将被重点整治"
+			},
+			{
+				"url":"https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_17010750092986082004%22%7D&n_type=0&p_from=1",
+				"title": "最开挂的“80后”人生：去年当选总理、今年升级当妈"
+			}
+		],
+		"biddingState": [
+			{
+				"name": "全部",
+				"key": "all"
+			},
+			{
+				"name": "成功得标",
+				"key": "bid"
+			},
+			{
+				"name": "预约出价",
+				"key": "offer"
+			},
+			{
+				"name": "竞标中",
+				"key": "offer"
+			},
+			{
+				"name": "出价被超越",
+				"key": "overoffer"
+			},
+			{
+				"name": "竞标失败",
+				"key": "bidfail"
+			},
+			{
+				"name": "弃标",
+				"key": "bid"
+			}
+		]
+	}
+}

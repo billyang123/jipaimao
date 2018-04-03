@@ -1,0 +1,25 @@
+{{!-- 分类 --}}
+{{#each data}}
+<div class="product-tab">
+  <ul class="clear">
+    <li>
+      <a href="/findItem?category={{yahoo_id}}" class="active">{{caption}}</a>
+    </li>
+    {{#each _child}}
+    <li>
+      <a href="/findItem?category={{yahoo_id}}">{{caption}}</a>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+<div class="product-tabpanel" id="itemList">
+  <ul class="clear">
+    <li class="head-item">
+      <img src="http://jp.freedaigou.cn/Ulowi/Tpl/default/Public/images/recommended_head_1.jpg" alt="">
+    </li>
+    {{#each productIds}}
+    <li class="product-item" data-id="{{this}}"></li>
+    {{/each}}
+  </ul>
+</div>
+{{/each}}

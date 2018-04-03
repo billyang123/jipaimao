@@ -1,0 +1,9 @@
+<a href="#" title="{{title}}">
+  <img src="{{get imgs '0'}}" alt="{{title}}">
+  <h3>{{title}}</h3>
+  <div class="info">
+    <p>当前价格：<em class="price">{{get bid 'bid_price'}}{{currency_unit}}</em></p>
+    <p>出价次数：{{deal_num}}次</p>
+    <p {{#if withbid}} data-countdown="{diffTime:{{remaining}},format: 'dd天hh时mm分ss秒'}" {{/if}}>竞拍结束</p>
+  </div>
+</a>

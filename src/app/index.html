@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+@@include('./_include/header.inc')
+<body>
+	@@include('./_include/site.inc')
+	@@include('./_include/top.inc')
+
+	<div class="screen-outer">
+		<div class="screen-inner wrap clear">
+			@@include('./_include/outerNav.inc')
+			<div class="service-hd">Yahoo!JAPAN拍卖分类</div>
+			<div class="yahoo-service" id="yahooService" style="width: 220px;"></div>
+			<div class="yahoo-promo" id="PromoSlide"></div>
+			<div class="yahoo-right">
+				<div class="ad-box">
+					<img src="../Public/images/addbannercjwti.png" alt="" width="100%">
+				</div>
+				<div class="ts-service-box">
+					<div class="tss-title">买下11区&sdot;特色服务</div>
+					<div class="tss-list">
+						<a href="javascript:void(0);"><i class="iconfont icon-zuanshi"></i>先得标再付款，免预付额</a>
+						<a href="javascript:void(0);"><i class="iconfont icon-zuanshi"></i>24小时系统自动出价、充值</a>
+						<a href="javascript:void(0);"><i class="iconfont icon-zuanshi"></i>业界最低费用、最高回馈</a>
+						<a href="javascript:void(0);"><i class="iconfont icon-zuanshi"></i>自动式竞拍</a>
+						<a href="javascript:void(0);"><i class="iconfont icon-zuanshi"></i>全通明的信息与收费</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="screen-btnavlink">
+		<div class="wrap">
+			<ul class="clear">
+				<li>
+					<a href="#">
+						<div class="snl-iconbx">
+							<i class="iconfont icon-shu-fankai"></i>
+						</div>
+						<div class="snl-txt">会员必读</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<div class="snl-iconbx">
+							<i class="iconfont icon-jiangpai"></i>
+						</div>
+						<div class="snl-txt">会员等级</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<div class="snl-iconbx">
+							<i class="iconfont icon-liuchengguanli"></i>
+						</div>
+						<div class="snl-txt">竞拍流程</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" data-remodal-target="calculation">
+						<div class="snl-iconbx">
+							<i class="iconfont icon-jisuanqi"></i>
+						</div>
+						<div class="snl-txt">费用试算</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<div class="snl-iconbx">
+							<i class="iconfont icon-jinbi"></i>
+						</div>
+						<div class="snl-txt">费用说明</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<div class="snl-iconbx">
+							<i class="iconfont icon-management-QA"></i>
+						</div>
+						<div class="snl-txt">常见问题</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="product-recommended">
+		<div class="wrap">
+			<div class="seller-title">
+				<span>Yahoo!拍卖人气商品推荐</span>
+			</div>
+			<div id="productRecommended">
+			</div>
+		</div>
+	</div>
+	<div class="jplcsyt-bk"></div>
+	<div class="seller-recommended" id="sellerRecommended">
+		<div class="wrap">
+			<div class="seller-title">
+				<span>Yahoo!拍卖人气卖家推荐</span>
+			</div>
+			<ul class="clear"></ul>
+		</div>
+	</div>
+	@@include('./_include/footer.inc')
+	<!-- @@include('./modules/calculation.inc') -->
+	<script src="../Public/js/main.js"></script>
+</body>
+</html>

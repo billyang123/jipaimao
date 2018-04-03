@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+@@include('./_include/header.inc')
+<body>
+  <style>
+  .ProductExplanation {
+    margin-top: -70px;
+    padding-top: 70px;
+    _margin-top: 0;
+    _padding-top: 0;
+    margin-bottom: 40px
+  }
+
+  .ProductExplanation__header {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #e2e1da
+  }
+
+  .ProductExplanation__body {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden
+  }
+
+  .ProductExplanation__body::-webkit-scrollbar {
+    background: #f4f4f4;
+    height: 14px;
+    overflow: visible
+  }
+
+  .ProductExplanation__body::-webkit-scrollbar-thumb {
+    background-color: #c9c9c9;
+    border: 3px solid #f4f4f4;
+    border-radius: 7px
+  }
+
+  .ProductExplanation__tableArea {
+    line-height: 1.4
+  }
+
+  .ProductExplanation__commentArea {
+    margin: 0 auto;
+    *zoom:1}
+
+  .ProductExplanation__commentArea img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    line-height: 0
+  }
+
+  .ProductExplanation__commentTitle {
+    margin-bottom: 10px;
+    text-align: left;
+    line-height: 1
+  }
+
+  .ProductExplanation__commentBody {
+    padding: 0 10px;
+    line-height: 1.4
+  }
+
+  .ProductExplanation__commentBody .decRenewal {
+    font-size: 12px;
+    font-weight: 700;
+    color: #666
+  }
+
+  .ProductTable {
+    width: 100%;
+    margin-bottom: 25px;
+    border: 1px solid #d3d2cc;
+    border-collapse: collapse;
+    *border-collapse: separate;
+    *border-spacing: 0;
+    *border-bottom: 0;
+    *border-right: 0;
+    table-layout: fixed
+  }
+
+  .ProductTable__title {
+    margin-bottom: 10px;
+    text-align: left;
+    line-height: 1
+  }
+
+  .ProductTable__body {
+    font-size: 87.5%
+  }
+
+  .ProductTable__row {
+    border-bottom: 1px solid #d3d2cc
+  }
+
+  .ProductTable__th {
+    width: 188px;
+    padding: 6px;
+    text-align: left;
+    background-color: #f1f0e8;
+    box-shadow: inset 2px 2px 0 #fff,inset -1px -1px 0 #fff;
+    *border-bottom: 1px solid #d3d2cc;
+    empty-cells: show
+  }
+
+  .ProductTable__td {
+    padding: 6px 10px;
+    border-right: 1px solid #d3d2cc;
+    *border-bottom: 1px solid #d3d2cc;
+    text-align: left;
+    empty-cells: show
+  }
+
+  .ProductTable--4col .ProductTable__td {
+    text-align: center
+  }
+
+  .ProductProcedures {
+    padding-top: 70px;
+    margin-top: -70px;
+    _margin-top: 0;
+    _padding-top: 0;
+    margin-bottom: 40px
+  }
+
+  .ProductProcedures__header {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #e2e1da
+  }
+
+  .ProductProcedures__lead {
+    margin-bottom: 15px;
+    padding: 0 10px;
+    font-size: 87.5%
+  }
+
+  .ProductProcedure {
+    border: 1px solid #d3d2cc
+  }
+
+  .ProductProcedure__header {
+    margin: 2px;
+    padding: 10px 15px;
+    background: #f1f0e8
+  }
+
+  .ProductProcedure__body {
+    padding: 15px
+  }
+
+  .ProductProcedure__item {
+    font-size: 87.5%;
+    line-height: 1.4
+  }
+
+  .ProductProcedure__note {
+    font-size: 85.71429%
+  }
+
+  .ProductProcedure__subItems {
+    margin: 0 0 20px 0;
+    line-height: 1.4
+  }
+
+  .ProductProcedure__subItem {
+    margin-top: 2px
+  }
+
+  .ProductProcedure__row {
+    margin-left: 14px
+  }
+
+  .ProductProcedure__rowHead {
+    display: inline;
+    margin-right: 10px
+  }
+
+  .ProductProcedure__rowBody {
+    display: inline
+  }
+
+  .ProductProcedure__banner {
+    float: right
+  }
+
+  .ProductProcedure--payment {
+    margin-right: 7px
+  }
+
+  .ProductProcedure--payment .ProductProcedure__item {
+    margin-bottom: 5px;
+    padding-left: 15px
+  }
+
+  .ProductProcedure--payment .ProductProcedure__bullet {
+    display: inline-block;
+    *display: inline;
+    *zoom:1;width: 15px;
+    margin-left: -15px
+  }
+
+  .ProductProcedure--payment .ProductProcedure__subItems {
+    padding-left: 15px;
+    font-size: 85.71429%
+  }
+
+  .ProductProcedure--shipping {
+    margin-left: 7px
+  }
+
+  .ProductProcedure--shipping .ProductProcedure__item {
+    margin-bottom: 10px
+  }
+  </style>
+	@@include('./_include/site.inc')
+	@@include('./_include/top.inc')
+	<div class="screen-outer">
+		<div class="screen-inner wrap clear">
+			@@include('./_include/outerNav.inc')
+			<div class="service-hd">Yahoo!JAPAN拍卖分类</div>
+			<div class="yahoo-service" id="yahooService" style="width: 220px;"></div>
+		</div>
+	</div>
+	<div class="detail-meta">
+		<div class="detail-meta-inner wrap clear">
+			<div class="detail-property" id="itemDetail">
+			</div>
+			<div class="detail-pic" style="display: none;">
+				<div id="showbox"></div>
+				<div id="showsum"></div>
+				<p class="showpage">
+				  <a href="javascript:void(0);" id="showlast"> < </a>
+				  <a href="javascript:void(0);" id="shownext"> > </a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="detail-main-wrap">
+		<div class="wrap">
+			<div class="detail-main-tab">
+				<ul class="tbl clear">
+					<li class="active">
+						<a href="javascript: void(0);">商品原文（日文）</a>
+					</li>
+					<li>
+						<a id="itemDetailTanslate" href="http://fanyi.baidu.com/transpage">商品翻译（中文）</a>
+					</li>
+				</ul>
+				<ul class="tbr clear">
+					<li>
+						<a href="#">出价记录</a>
+					</li>
+					<li>
+						<a href="#">竞拍流程</a>
+					</li>
+					<li>
+						<a href="#">常见问题</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="detail-main" id="detailMain" style="padding: 20px;"></div>
+		</div>
+	</div>
+
+	<div data-remodal-id="bidAuctionModal" class="item-modal">
+	  <button data-remodal-action="close" class="remodal-close"></button>
+		<div class="item-modal-title">出价竞拍</div>
+	  	<div class="item-modal-content">
+	  		<p class="mp">当前价格：<span class="num">1200</span> 日元(RMB <span class="num">227.98</span>元)</p>
+	  		<p class="mp">本次加价至少为：<span class="num">100</span>日元</p>
+	  		<p class="mp abs"><span class="bod">出价金额：</span><input type="text" />日元</p>
+	  		<p class="mp">折合人民币：0元</p>
+	  		<div class="btnline">
+	  			<button class="btn btn-danger">确定</button>
+	  		</div>
+	  		<div class="tipsarea">
+	  			<p><span>温馨提示：</span>本品商家好评为113，差评为2，供参考使用，出价成功后不能弃标，弃标要扣除弃标费用。</p>
+	  		</div>
+	  	</div>
+	</div>
+	<div data-remodal-id="reservationBid" class="item-modal">
+	  <button data-remodal-action="close" class="remodal-close"></button>
+		<div class="item-modal-title">预约出价</div>
+	  	<div class="item-modal-content">
+	  		<p class="mp">当前价格：<span class="num">1200</span> 日元(RMB <span class="num">227.98</span>元)</p>
+	  		<p class="mp">本次加价至少为：<span class="num">100</span>日元</p>
+	  		<p class="mp num">为避免被人恶意抬价，您出的价格会在结束前五分钟由系统进行出价，也为您节省了宝贵时间</p>
+	  		<p class="mp abs"><span class="bod">出价金额：</span><input type="text" />日元</p>
+	  		<p class="mp">折合人民币：0元</p>
+	  		<div class="btnline">
+	  			<button class="btn btn-danger">确定</button>
+	  		</div>
+	  		<div class="tipsarea">
+	  			<p><span>温馨提示：</span>本品商家好评为113，差评为2，供参考使用，出价成功后不能弃标，弃标要扣除弃标费用。</p>
+	  		</div>
+	  	</div>
+	</div>
+	<div data-remodal-id="directBid" class="item-modal">
+	  <button data-remodal-action="close" class="remodal-close"></button>
+		<div class="item-modal-title">直接购买</div>
+	  	<div class="item-modal-content">
+	  		<p class="mp">本次直接购买价为：<span class="num">1200</span> 日元(RMB <span class="num">227.98</span>元)</p>
+	  		<p class="mp abs zgj"><span class="bod">直购价：</span><input type="text" />日元</p>
+	  		<div class="btnline">
+	  			<button class="btn btn-danger">确定</button>
+	  		</div>
+	  		<div class="tipsarea">
+	  			<p><span>温馨提示：</span>本品商家好评为113，差评为2，供参考使用，出价成功后不能弃标，弃标要扣除弃标费用。</p>
+	  		</div>
+	  	</div>
+	</div>
+	@@include('./_include/footer.inc')
+<script src="../Public/js/item-detail.js"></script>
+</body>
+</html>

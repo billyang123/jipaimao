@@ -1,0 +1,20 @@
+{{!-- 首页banner 和 广告位等 --}}
+<div class="slider-container">
+    {{#each data}}
+    <div class="slide-item" style="display:block;">
+        <a href="{{url}}">
+          <img width="740" height="426" src="http://jp.freedaigou.cn/Uploads/pic/ad/{{img}}" />
+        </a>
+    </div>
+    {{/each}}
+</div>
+<div class="slide-text">
+  <div class="opacity-mask"></div>
+  <ul class="clear">
+    {{#each data}}
+      <li {{#is @index '===' 0}} class="curr" {{/is}}>
+        <a href="javascript:void(0);">{{title}}</a>
+      </li>
+    {{/each}}
+  </ul>
+</div>

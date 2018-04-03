@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+@@include('./_include/header.inc')
+<body>
+	@@include('./_include/site.inc')
+	@@include('./_include/top.inc')
+
+	<div class="screen-outer">
+		<div class="screen-inner wrap clear">
+			@@include('./_include/outerNav.inc')
+			@@include('./_include/yahooServer.inc')
+			<div class="bread-crumbs">
+				你现在的位置：<a href="#">首页</a> &lt; <a href="#">拍卖</a> &lt; <a href="#">古董、收藏 </a> &lt; <a href="#">工艺品收藏该分类</a>
+			</div>
+		</div>
+	</div>
+	<div class="filter-condition">
+		<div class="filter-inner wrap clear">
+			<div class="filter-box" id="JfindFilter"></div>
+			<div class="filter-t7ab">
+				<ul>
+					<li>
+						<a href="javascript:void(0);" data-sort="4,3">竞价次数<i class="iconfont icon-xiajiangjiantou"></i></a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-sort="1,2">当前出价<i class="iconfont icon-shangshengjiantou"></i></a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-sort="5,6">剩余时间<i class="iconfont icon-xiajiangjiantou"></i></a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-sort="7,8">直购价<i class="iconfont icon-shangshengjiantou"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="filter-result-main">
+		<div class="result-list">
+      <div id="resultListBox"></div>
+			<div id="pageBox" class="paging-box"></div>
+		</div>
+
+	</div>
+	@@include('./_include/footer.inc')
+  <script src="../Public/js/search-page.js"></script>
+</body>
+</html>

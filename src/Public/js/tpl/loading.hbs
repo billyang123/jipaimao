@@ -1,0 +1,25 @@
+<div class="next-loading loading" style="{{style}}">
+  <div class="next-loading-tip">
+    {{#is type '===' 'fusion-reactor'}}
+    <div class="next-loading-fusion-reactor">
+      <div class="next-loading-dot" style="background-color:{{color}}"></div>
+      <div class="next-loading-dot" style="background-color:{{color}}"></div>
+      <div class="next-loading-dot" style="background-color:{{color}}"></div>
+      <div class="next-loading-dot" style="background-color:{{color}}"></div>
+    </div>
+    {{/is}}
+    {{#is type '===' 'flower'}}
+    <span class="next-loading-flower"><i class="next-icon next-icon-loading next-icon-medium next-loading-icon" style="color: {{color}}"></i></span>
+    loading...
+    {{/is}}
+    {{#is type '===' 'dot-circle'}}
+    <div class="next-loading-dot-circle"><div class="next-loading-dot" style="color:{{color}}">loading...</div></div>
+    {{/is}}
+  </div>
+  <div class="next-loading-component">
+      <div class="next-loading-masker"></div>
+      <div class="next-loading-content">
+
+      </div>
+  </div>
+</div>

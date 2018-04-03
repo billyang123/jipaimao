@@ -1,0 +1,31 @@
+{{#if list_product}}
+{{#each list_product}}
+<li class="item" data-id="{{getItemIdFormUrl title_link}}">
+  <div class="pic">
+    <a href="{{title_link}}" title="{{title}}" class="pic-link" target="_blank">
+      <img width="209" height="209" src="{{img_url}}" alt="{{img_alt}}">
+    </a>
+  </div>
+  <h3 class="title"><a href="{{title_link}}" target="_blank" title="{{title}}">{{title}}</a></h3>
+  <div class="price-box">
+    <p class="dq-price">当前价：<span>RMB <em class="lg-num">{{getPrice price_bid 'JPY_CNY'}}</em></span> </p>
+    <p class="zg-price">
+      直购价：RMB {{getPrice price_buy 'JPY_CNY'}}
+      {{#if dealed_info.num}}
+      <span class="cjcont">出价{{dealed_info.num}}次</span>
+      {{else}}
+      <span class="cjcont">出价0次</span>
+      {{/if}}
+    </p>
+  </div>
+  <div class="time-box">
+    <p>
+      <i class="iconfont icon-shijianxuanze"></i>
+      <span data-countDown="{diffTime:10}"></span>
+    </p>
+  </div>
+</li>
+{{/each}}
+{{else}}
+  <div>暂无商品...</div>
+{{/if}}

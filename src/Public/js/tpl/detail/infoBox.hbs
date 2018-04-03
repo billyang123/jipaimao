@@ -1,0 +1,58 @@
+<div class="yahoo-wrap clear">
+  <div class="detail-info">
+    <div class="detail-hd">
+      <h1>{{data.title}}</h1>
+    </div>
+    <div class="fcs-panel">
+      <p>当前价格：<em class="price">{{data.bid.bid_price}}</em> <span class="emit">{{data.currency_unit}}</span> （RMB {{data.CNYPrice}} 元)</p>
+      <p>
+        剩余时间：
+        {{#is data.withbid '===' true}}
+        <span class="time" data-countdown="{deadline: '{{data.endTime}}', format: 'dd天 hh小时 mm分 ss秒'}"></span>
+        {{else}}
+        <span>已结束</span>
+        {{/is}}
+        <!-- （系统在92秒后刷新） -->
+      </p>
+      <p>出价次数：{{data.deal_num}}</p>
+      <p>加价单位：100円</p>
+      <p>最高价者：{{data.laster}}</p>
+      <p>出品数量：{{data.tNum}}件</p>
+    </div>
+    <div class="time-panel">
+      <p>开始时间：{{data.startTime}}</p>
+      <p>结束时间：{{data.endTime}}</p>
+    </div>
+    <div class="options-panel clear">
+      <button type="button" class="btn btn-primary" data-remodal-target="bidAuctionModal">立即出价</button>
+      <button type="button" class="btn btn-primary" data-remodal-target="reservationBid">预约出价</button>
+      <button type="button" class="btn btn-danger" data-remodal-target="directBid">直接购买</button>
+      <button type="button" class="btn btn-danger">关注商品</button>
+    </div>
+    <div class="yugujs">
+      <p data-remodal-target="calculation">
+        购买此商品的预估总价费用
+        <span class="iconjs"><i class="iconfont icon-jisuanqi"></i></span>
+        <span class="text-org">费用试算</span>
+      </p>
+    </div>
+  </div>
+  <div class="detail-shop-meta">
+    <div class="detail-shop-hd">买家信息</div>
+    <div class="detail-shop-bd">
+      <p>买家：{{data.retailer}}</p>
+      <p>评价：{{data.comment.total}} {{data.comment.good}} {{data.comment.bad}}</p>
+      <p>{{ImgTag "../Public/images/shop.gif"}}店铺卖家＋8%消费税</p>
+      <p>发货地：{{data.goodarea}}</p>
+      <p>提早结束：{{data.isFirstStop}}</p>
+      <p>自动延长：{{data.isLater}}</p>
+      <p>日本邮费：买家承担</p>
+      <p>退货可否：{{data.isReturn}}</p>
+    </div>
+    <div class="detail-shop-ft">
+      <a href="https://page.auctions.yahoo.co.jp/jp/auction/{{data.item_id}}">浏览Yahoo原始页面</a>
+      <a href="https://auctions.yahoo.co.jp/seller/{{data.retailer}}">卖家更多出品</a>
+      <a href="#">收藏买家</a>
+    </div>
+  </div>
+</div>

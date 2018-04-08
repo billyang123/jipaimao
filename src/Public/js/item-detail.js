@@ -2,27 +2,17 @@ var $ = require('jquery');
 
 var detailPicShow = require('ui/detailPicShow.js');
 import countDown from 'ui/countDown.js'
-import {ajax, URLPARAM, priceInc, getRates} from 'core/utils.js';
+import {ajax, URLPARAM, getRates} from 'core/utils.js';
+import {priceInc} from 'config'
 import infoBoxTmp from './tpl/detail/infoBox.hbs';
+import detailPicTmp from './tpl/detail/detailPic.hbs';
+
 import calculation from 'ui/calculation.js';
 import loading from 'ui/loading.js'
 var remodal = require('ui/remodal.js');
-var showproduct = {
-	"boxid":"showbox",
-	"sumid":"showsum",
-	"boxw":355,//宽度,该版本中请把宽高填写成一样
-	"boxh":278,//高度,该版本中请把宽高填写成一样
-	"sumw":62,//列表每个宽度,该版本中请把宽高填写成一样
-	"sumh":62,//列表每个高度,该版本中请把宽高填写成一样
-	"sumi":10,//列表间隔
-	"sums":4,//列表显示个数
-	"sumsel":"sel",
-	"sumborder":1,//列表边框，没有边框填写0，边框在css中修改
-	"lastid":"showlast",
-	"nextid":"shownext"
-};//参数定义
-var Loading = new loading('#itemDetail');
-var Loading_info = new loading('#detailMain');
+
+var Loading = new loading('#itemDetail', {style:'width: 100%;height: 100px;'});
+var Loading_info = new loading('#detailMain', {style:'width: 100%;height: 100px;'});
 var itemDetail = function(){
 	console.log(URLPARAM);
 	this.itemId = URLPARAM.id || 'r235736015';
@@ -49,24 +39,6 @@ itemDetail.prototype = {
 		}
 		return inc;
 	},
-	imgsLoad(imgs, callback) {
-		let imgStrs = [],len = 0;
-		console.log(imgs);
-		imgs.forEach((item) => {
-			$('<img/>').attr('src', item).load(function() {
-				len ++;
-				imgStrs.push(`<img src="${item}" width="${this.width}" height="${this.height}" />`);
-				if (len >= imgs.length) {
-					callback && callback(imgStrs)
-				}
-			}).error(function(){
-				len ++;
-				if (len >= imgs.length) {
-					callback && callback(imgStrs)
-				}
-			})
-		})
-	},
 	getDetail() {
 		Loading.show()
 		Loading_info.show()
@@ -83,7 +55,6 @@ itemDetail.prototype = {
 				},
 				success: (res) => {
 						res.priceInc = priceInc;
-						console.log('res',res);
 						if (!res.data) res.data = {};
 						if ($.isEmptyObject(res.data)) {
 							return alert('该商品已下架！')
@@ -117,11 +88,7 @@ itemDetail.prototype = {
 							}
 						})
 						const imgs = res.data.imgs || [];
-						this.imgsLoad(imgs, (strs) => {
-							$('#showbox').html(strs.join(''));
-							$('.detail-pic').show();
-							detailPicShow(showproduct);
-						})
+						detailPicShow('#detailPicBox', {imgs})
 						$('#itemDetailTanslate').attr('href', `http://fanyi.baidu.com/transpage?query=https%3A%2F%2Fpage.auctions.yahoo.co.jp%2Fjp%2Fauction%2F${res.data.item_id}&source=url&ie=utf8&from=auto&to=zh&render=1`)
 						getRates((rates) => {
 							res.data.CNYPrice = Math.round(res.data.bid.bid_price.split(',').join('') * rates['JPY_CNY'] * 100)/100;

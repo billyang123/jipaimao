@@ -131,6 +131,9 @@ Handlebars.registerHelper("get",function(data, keys){
   })
   return result;
 });
+Handlebars.registerHelper("safeString",function(str){
+    return new Handlebars.SafeString(str);
+});
 Handlebars.registerHelper("getArr",function(data, index){
     return data[index]
 });

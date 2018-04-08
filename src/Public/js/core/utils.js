@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import config from './config.js';
 import store from './store.js';
 import 'ui/scroll.js'
 import './helper.js'
@@ -189,10 +188,8 @@ const findYahooCat = (id, callback) => {
 siteInit();
 var utils = {
 	URLPARAM: _getUrlParam(),
-	priceInc: config.priceInc,
 	getUrlParam: _getUrlParam,
 	setUrlParam: _setUrlParam,
-	api: config.api,
 	env: env,
 	doParams: doParams,
 	ajax: _ajax,

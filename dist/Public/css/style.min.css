@@ -3765,7 +3765,8 @@ body {
 }
 .detail-meta-inner .detail-info {
   float: left;
-  width: 490px;
+  width: 505px;
+  margin-right: 20px;
 }
 .detail-meta-inner .detail-shop-meta {
   float: left;
@@ -4105,6 +4106,9 @@ body {
 }
 .pc-sub-list .sub-list li a {
   font-size: 14px;
+}
+.pc-sub-list .sub-list li a.active {
+  color: #ff9f0c;
 }
 .pc-panel {
   background-color: #fff;

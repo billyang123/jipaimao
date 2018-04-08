@@ -37,7 +37,8 @@ module.exports = {
             jquery: srcDir + "/Public/js/lib/jquery.min.js",
             core: srcDir + "/Public/js/core",
             ui: srcDir + "/Public/js/ui",
-            tpl: srcDir + "/Public/js/tpl"
+            tpl: srcDir + "/Public/js/tpl",
+            config: srcDir + "/Public/js/config/index.js"
         }
     },
     module: {

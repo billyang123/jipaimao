@@ -1,0 +1,26 @@
+{{#with this}}
+<div class="pc-sub-title">
+  <h2>会员主页</h2>
+  <p class="pst-emal">{{userInfo.account}}</p>
+  <p>当前汇率：{{exchangeRate}}</p>
+  <p>余额：<em class="text-red">{{userInfo.balance}}</em> RMB</p>
+  <p>保证金：<em class="text-red">{{userInfo.bond}}</em> RMB <i class="level l1"></i></p>
+  <p>积分：{{userInfo.integral}} 点</p>
+  <div class="btns">
+    <a href="#" class="btn btn-primary btn-sm">充值余额</a>
+    <a href="#" class="btn btn-danger btn-sm">账户升级</a>
+  </div>
+</div>
+<div class="pc-sub-list">
+  {{#each menuList}}
+  <h3 class="sub-h3">{{title}}</h3>
+  <ul class="sub-list">
+    {{#each list}}
+    <li>
+      <a href="javascript:void(0)" class="js-pcSubTo" data-key="{{key}}">{{title}}</a>
+    </li>
+    {{/each}}
+  </ul>
+  {{/each}}
+</div>
+{{/with}}

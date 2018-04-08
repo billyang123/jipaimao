@@ -1,4 +1,6 @@
-var $ = require('jquery');
+import $ from 'jquery';
+import detailPicTmp from '../tpl/detail/detailPic.hbs';
+import loading from './loading.js';
 var detailPicShow = function(_obj){
 	var _box = $("#"+_obj.boxid);
 	var _sum = $("#"+_obj.sumid);
@@ -208,5 +210,50 @@ var detailPicShow = function(_obj){
 		imgPlaces();
 	});
 }
-
-module.exports = detailPicShow;
+const imgsLoad = (imgs, callback) => {
+	let imgStrs = [],len = 0;
+	imgs.forEach((item) => {
+		$('<img/>').attr('src', item).load(function() {
+			len ++;
+			imgStrs.push(`<img src="${item}" width="${this.width}" height="${this.height}" />`);
+			if (len >= imgs.length) {
+				callback && callback(imgStrs.join(''))
+			}
+		}).error(function(){
+			len ++;
+			if (len >= imgs.length) {
+				callback && callback(imgStrs.join(''))
+			}
+		})
+	})
+};
+var showproduct = {
+	"boxid":"showbox",
+	"sumid":"showsum",
+	"boxw":355,//宽度,该版本中请把宽高填写成一样
+	"boxh":355,//高度,该版本中请把宽高填写成一样
+	"sumw":62,//列表每个宽度,该版本中请把宽高填写成一样
+	"sumh":62,//列表每个高度,该版本中请把宽高填写成一样
+	"sumi":10,//列表间隔
+	"sums":4,//列表显示个数
+	"sumsel":"sel",
+	"sumborder":1,//列表边框，没有边框填写0，边框在css中修改
+	"lastid":"showlast",
+	"nextid":"shownext"
+};//参数定义
+var picBoxShow = function(container, options) {
+	if (!options) options = {};
+	let imgs = options.imgs;
+	let callback = options.callback;
+	let boxOpts = Object.assign({}, showproduct, options.boxOpts);
+	let Loading_pic = new loading(container, {
+		style: 'width: 100%;height: 355px;'
+	});
+	Loading_pic.show();
+	imgsLoad(imgs, (imgStrs) => {
+		Loading_pic.addContent(detailPicTmp({imgStrs}));
+		Loading_pic.hide();
+		detailPicShow(boxOpts)
+	})
+}
+module.exports = picBoxShow;

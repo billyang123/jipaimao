@@ -227,7 +227,7 @@ calcula.prototype = {
     setNum(this.rate, 0, 0,0,0,0,0);
   },
   _bind() {
-    this.$submit.click(function(){
+    this.$submit.click(() => {
     	var pirce = checkNum(this.$calItemPrice.val());
     	var spsf = pirce * checkNum(this.$calExciseTax.val());
 

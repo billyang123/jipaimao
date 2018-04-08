@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html>
+@@include('./_include/header.inc')
+<body>
+	@@include('./_include/site.inc')
+	@@include('./_include/top.inc')
+
+	<div class="screen-outer">
+		<div class="screen-inner wrap clear">
+			@@include('./_include/outerNav.inc')
+			@@include('./_include/yahooServer.inc')
+		</div>
+	</div>
+	<div class="personal-center" id="J_personal-center">
+		<div class="wrap clear">
+			<div class="pc-sub" id="PersonalCenterSub">
+				<script id="JT-centerIndex-subData" type="text/html">
+					<div class="pc-sub-title">
+						<h2>会员主页</h2>
+						<p class="pst-emal">{{userInfo.account}}</p>
+						<p>当前汇率：{{exchangeRate}}</p>
+						<p>余额：<em class="text-red">{{userInfo.balance}}</em> RMB</p>
+						<p>保证金：<em class="text-red">{{userInfo.bond}}</em> RMB <i class="level l1"></i></p>
+						<p>积分：{{userInfo.integral}} 点</p>
+						<div class="btns">
+							<a href="#" class="btn btn-primary btn-sm">充值余额</a>
+							<a href="#" class="btn btn-danger btn-sm">账户升级</a>
+						</div>
+					</div>
+					<div class="pc-sub-list">
+						{{#each menuList}}
+						<h3 class="sub-h3">{{title}}</h3>
+						<ul class="sub-list">
+							{{#each list}}
+							<li>
+								<a href="javascript:void(0)" class="js-pcSubTo" data-key="{{key}}">{{title}}</a>
+							</li>
+							{{/each}}
+						</ul>
+						{{/each}}
+					</div>
+				</script>
+			</div>
+			<div class="pc-mian">
+				<div class="pc-panel">
+					<div class="pc-panel-hd fd1">
+						我的提醒
+					</div>
+					<div class="pc-panel-bd">
+						<div class="mine-center-info clear">
+							<script id="JT-centerIndex-myreminding" type="text/html">
+								<div class="mine-center-info-item">
+									<p>咨询回复：{{replyCount}}条</p>
+									<a href="#">留言咨询</a>
+								</div>
+								<div class="mine-center-info-item">
+									<p>资讯回复：{{giftCard}}条</p>
+									<a href="#">留言咨询</a>
+								</div>
+							</script>
+						</div>
+					</div>
+				</div>
+				<div class="pc-panel">
+					<div class="pc-panel-hd fd2">
+						竞标提醒
+					</div>
+					<div class="pc-panel-bd">
+						<div class="mine-center-info clear" style="width: 750px;">
+							<script id="JT-centerIndex-bid" type="text/html">
+								<div class="mine-center-info-item" style="width:150px">
+									<p>预约出价 {{reservation}}</p>
+								</div>
+								<div class="mine-center-info-item" style="width:150px">
+									<p>竞拍中 {{bidders}}</p>
+								</div>
+								<div class="mine-center-info-item" style="width:150px">
+									<p>出价被超越 {{surpassed}}</p>
+								</div>
+								<div class="mine-center-info-item" style="width:150px">
+									<p>竞拍成功 {{bidCount}}</p>
+								</div>
+								<div class="mine-center-info-item" style="width:150px">
+									<p>竞拍失败 {{bidFailCount}}</p>
+								</div>
+							</script>
+						</div>
+					</div>
+				</div>
+				<div class="pc-panel box-shadow" style="margin-bottom: 10px;">
+					<div class="pc-panel-hd fd2">
+						订单提醒
+					</div>
+					<div class="pc-panel-bd">
+						<div class="mine-center-info clear" style="width: 680px;">
+							<script id="JT-centerIndex-orderreminding" type="text/html">
+								<div class="mine-center-info-item" style="width:170px">
+									<p>得标待付款 {{pdPayCount}}</p>
+								</div>
+								<div class="mine-center-info-item" style="width:170px">
+									<p>已到库待通知出货 {{ydkdtzchCount}}</p>
+								</div>
+								<div class="mine-center-info-item" style="width:170px">
+									<p>待付尾款 {{RetaPayCount}}</p>
+								</div>
+								<div class="mine-center-info-item" style="width:170px">
+									<p>已发货 {{shippedCount}}</p>
+								</div>
+							</script>
+						</div>
+					</div>
+				</div>
+				<div class="pc-panel box-shadow" style="margin-bottom: 10px;">
+					<div class="pc-panel-hd fd1">
+						最新公告
+					</div>
+					<div class="pc-panel-bd">
+						<script id="JT-centerIndex-bulletin" type="text/html">
+							<ul class="pc-panel-bulletin">
+								{{#each this}}
+								<li><a href="{{url}}">{{@index}}、{{title}}</a></li>
+								{{/each}}
+							</ul>
+						</script>
+					</div>
+				</div>
+
+				<div class="pc-panel box-shadow pc-jbzt">
+					<h2 class="title">竞标状态</h2>
+					<div class="pc-tab">
+						<ul class="clear">
+							<li>
+								<a href="#" class="active">全部</a>
+							</li>
+							<li>
+								<a href="#">成功得标</a>
+							</li>
+							<li>
+								<a href="#">预约出价</a>
+							</li>
+							<li>
+								<a href="#">竞标中</a>
+							</li>
+							<li>
+								<a href="#">出价被超越</a>
+							</li>
+							<li>
+								<a href="#">竞标失败</a>
+							</li>
+							<li>
+								<a href="#">弃标</a>
+							</li>
+						</ul>
+					</div>
+					<div class="pc-filter">
+						<form action="#" class="clear pc-form pc-form-inline">
+							<div class="form-item">
+								<label for="">商品ID：</label>
+								<input type="text">
+							</div>
+							<div class="form-item">
+								<label for="">卖家：</label>
+								<input type="text">
+							</div>
+							<div class="form-item">
+								<button type="submit" class="btn btn-danger btn-xs">搜索</button>
+							</div>
+						</form>
+						<div class="pfilter-sort clear">
+							<div class="form-item">
+								<label for="">显示方式：</label>
+								<select>
+									<option value="1">剩余时间</option>
+								</select>
+							</div>
+							<div class="form-item">
+								<label for="">排序：</label>
+								<select>
+									<option value="1">降序</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="pc-table">
+						<table class="ui celled table">
+							<thead>
+								<tr>
+									<th width="220">商品</th>
+									<th>卖家ID</th>
+									<th>剩余时间</th>
+									<th>我的出价</th>
+									<th>当前价格</th>
+									<th>竞价次数</th>
+									<th>状态</th>
+									<th width="85">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										<div class="text-red" data-countdown="{deadline:'2018-03-12 12:00:00',format: 'dd天hh时mm分ss秒'}">2018-03-12 12:00:00</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>45</td>
+									<td>竞标中</td>
+									<td>
+										<div class="pc-table-options">
+											<a href="#">加价</a>
+											<a href="#">取消出价</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										<div class="text-red" data-countdown="{deadline:'2018-03-12 12:00:00',format: 'dd天hh时mm分ss秒'}">2018-03-12 12:00:00</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red">预约中</p>
+										</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>45</td>
+									<td>预约出价</td>
+									<td>
+										<div class="pc-table-options">
+											<a href="#">加价</a>
+											<a href="#">取消出价</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										<div class="text-red" data-countdown="{deadline:'2018-03-12 12:00:00',format: 'dd天hh时mm分ss秒'}">2018-03-12 12:00:00</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red">预约中</p>
+										</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>45</td>
+									<td>出价被超越</td>
+									<td>
+										<div class="pc-table-options">
+											<a href="#">加价</a>
+											<a href="#">取消出价</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										<div class="text-red" data-countdown="{deadline:'2018-03-12 12:00:00',format: 'dd天hh时mm分ss秒'}">2018-03-12 12:00:00</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red">预约中</p>
+										</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>45</td>
+									<td>成功得标</td>
+									<td>
+										<div class="pc-table-options">
+											<a href="#">前往付款</a>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="pc-table js-table">
+						<table class="ui celled table">
+							<thead>
+								<tr>
+									<th></th>
+									<th width="220">商品</th>
+									<th>卖家ID</th>
+									<th>剩余时间</th>
+									<th>我的出价</th>
+									<th>当前价格</th>
+									<th>竞价次数</th>
+									<th>状态</th>
+									<th width="85">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<input class="js-tdkey" type="checkbox" value="1" name="id">
+									</td>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										<div class="text-red" data-countdown="{deadline:'2018-03-12 12:00:00',format: 'dd天hh时mm分ss秒'}">2018-03-12 12:00:00</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>45</td>
+									<td>竞标中</td>
+									<td>
+										<div class="pc-table-options">
+											<a href="#">加价</a>
+											<a href="#">取消出价</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input class="js-tdkey" type="checkbox" value="2" name="id">
+									</td>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										<div class="text-red" data-countdown="{deadline:'2018-03-12 12:00:00',format: 'dd天hh时mm分ss秒'}">2018-03-12 12:00:00</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red">预约中</p>
+										</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>45</td>
+									<td>预约出价</td>
+									<td>
+										<div class="pc-table-options">
+											<a href="#">加价</a>
+											<a href="#">取消出价</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input class="js-tdkey" type="checkbox" value="3" name="id">
+									</td>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										<div class="text-red" data-countdown="{deadline:'2018-03-12 12:00:00',format: 'dd天hh时mm分ss秒'}">2018-03-12 12:00:00</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red">预约中</p>
+										</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>45</td>
+									<td>出价被超越</td>
+									<td>
+										<div class="pc-table-options">
+											<a href="#">加价</a>
+											<a href="#">取消出价</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input class="js-tdkey" type="checkbox" value="4" name="id">
+									</td>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										<div class="text-red" data-countdown="{deadline:'2018-03-12 12:00:00',format: 'dd天hh时mm分ss秒'}">2018-03-12 12:00:00</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red">预约中</p>
+										</div>
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>45</td>
+									<td>成功得标</td>
+									<td>
+										<div class="pc-table-options">
+											<a href="#">前往付款</a>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="batch-options clear">
+							<a href="javascript:void(0);" class="js-check-all">全选</a>
+							<a href="javascript:void(0);" class="js-un-check-all">取消全选</a>
+							<a href="#" class="btn btn-xs btn-danger">支付</a>
+						</div>
+					</div>
+					<!-- 得标订单全部 -->
+					<div class="pc-table">
+						<table class="ui celled table">
+							<thead>
+								<tr>
+									<th>订单号</th>
+									<th width="220">商品</th>
+									<th>卖家ID</th>
+									<th>得标时间</th>
+									<th>得标价</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>JP0234345</td>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										2018-03-12 12:00:00
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>订购中</td>
+								</tr>
+								<tr>
+									<td>JP0234345</td>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										2018-03-12 12:00:00
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>已订购</td>
+								</tr>
+								<tr>
+									<td>JP0234345</td>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										2018-03-12 12:00:00
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>已到库</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- 得标订单已到库 -->
+					<div class="pc-table js-table">
+						<table class="ui celled table">
+							<thead>
+								<tr>
+									<th></th>
+									<th>订单号</th>
+									<th width="220">商品</th>
+									<th>卖家ID</th>
+									<th>得标时间</th>
+									<th>得标价</th>
+									<th>重量</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<input class="js-tdkey" type="checkbox" value="1" name="id1">
+									</td>
+									<td>JP0234345</td>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										2018-03-12 12:00:00
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>23</td>
+									<td>
+										<div>
+											<p>到货时间：2018-03-12 12:00</p>
+											<p>免费仓储到期日：2018-03-12</p>
+											<p>免费仓储逾期天数：-----</p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input class="js-tdkey" type="checkbox" value="2" name="id1">
+									</td>
+									<td>JP0234345</td>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										2018-03-12 12:00:00
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>23</td>
+									<td>
+										<div>
+											<p>到货时间：2018-03-12 12:00</p>
+											<p>免费仓储到期日：2018-03-12</p>
+											<p>免费仓储逾期天数：-----</p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input class="js-tdkey" type="checkbox" value="3" name="id1">
+									</td>
+									<td>JP0234345</td>
+									<td>
+										<div class="item-media" style="width: 190px;">
+											<div class="pic"><img src="#" alt=""></div>
+											<p class="htt">是日本的法定货币，日元也经常在美元和欧元</p>
+											<p class="hid">商品ID：h280984309</p>
+										</div>
+									</td>
+									<td>tyoufe77</td>
+									<td>
+										2018-03-12 12:00:00
+									</td>
+									<td>
+										<div>
+											<p class="text-red text-bold">335000</p>
+											<p>(RMB 2134.5元)</p>
+										</div>
+									</td>
+									<td>23</td>
+									<td>
+										<div>
+											<p>到货时间：2018-03-12 12:00</p>
+											<p>免费仓储到期日：2018-03-12</p>
+											<p>免费仓储逾期天数：-----</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="batch-options clear">
+							<a href="javascript:void(0);" class="js-check-all">全选</a>
+							<a href="javascript:void(0);" class="js-un-check-all">取消全选</a>
+							<a href="#" class="btn btn-xs btn-danger">支付</a>
+						</div>
+					</div>
+				</div>
+				<div class="pc-panel box-shadow pc-prefile-from">
+					<h2 class="title">个人资料</h2>
+					<div class="pc-prefile">
+						<form>
+							<h3 class="pc-min-title">账户</h3>
+							<div class="pc-from">
+								<div class="pc-from-item">
+									<label class="label"><span class="text-red">＊</span>昵称：</label>
+									<input type="text" >
+									<span class="help">请输入最多32个字的昵称</span>
+								</div>
+								<div class="pc-from-item">
+									<label class="label"><span class="text-red">＊</span>电子邮件：</label>
+									<input type="text" >
+									<span class="help">即为你的登录账号与联络用电子邮件</span>
+								</div>
+								<div class="pc-from-item">
+									<label class="label"><span class="text-red">＊</span>真实姓名：</label>
+									<input type="text" >
+									<span class="help">请正确填写</span>
+								</div>
+								<div class="pc-from-item">
+									<label class="label"><span class="text-red">＊</span>性别：</label>
+									<label class="radio-inline">
+										<input type="radio" name="sex" id="sex1" value="1"> 男
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="sex" id="sex2" value="2"> 女
+									</label>
+								</div>
+								<div class="pc-from-item">
+									<label class="label"><span class="text-red">＊</span>身份证号：</label>
+									<input type="text" >
+									<span class="help">请填写正确，货品寄送时，货运公司将于报关时使用（外籍人士不必填写）</span>
+								</div>
+							</div>
+							<h3 class="pc-min-title">账户通讯地址</h3>
+							<div class="pc-from">
+								<div class="pc-from-item">
+									<label class="label"><span class="text-red">＊</span>注册手机号：</label>
+									<input type="text" >
+									<span class="help">请正确填写（请勿输入数字以外字符）</span>
+								</div>
+								<div class="pc-from-item">
+									<label class="label"><span class="text-red">＊</span>移动电话：</label>
+									<input type="text" >
+									<span class="help">请正确填写（请勿输入数字以外字符）</span>
+								</div>
+								<div class="pc-from-item">
+									<label class="label"><span class="text-red">＊</span>送货地址：</label>
+									<input type="text" style="width: 500px;">
+								</div>
+								<div class="pc-from-item">
+									<label class="label"><span class="text-red">＊</span>邮政编码：</label>
+									<input type="text" >
+									<span class="help">请正确填写</span>
+								</div>
+							</div>
+							<div style="text-align: center;margin-top: 20px;">
+								<button type="submit" class="btn btn-danger btn-sm">确定修改</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div class="pc-panel box-shadow pc-account-auth">
+					<h2 class="title">账户认证</h2>
+					<div class="pc-account-info">
+						<p class="tip-help">
+							为了提升服务品质，并提供更多的加值服务，我们要求会员必须通知以下至少一项认证；当您通过手机认证后，更可多项方便且贴心的机能，如[超价短信通知],[得标短信通知],[到货短信通知] 等等。
+						</p>
+						<h4>你的认证状态</h4>
+						<p class="tip-help">
+							每个步骤只需认证一次，Email与手机号码为联络管道，若更改资料必须重新确认。
+						</p>
+					</div>
+					<table class="ui selectable table">
+					  <thead>
+					    <tr>
+					      <th>状态</th>
+					      <th>确认步骤</th>
+					      <th width="60">操作</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td>
+					      	<label class="checkbox-inline yahoo-checkbox">
+					      		<input class="checkbox" type="checkbox" value="1">
+					      		<i class="iconfont"></i>
+					      	</label>
+					      </td>
+					      <td>
+					      	<div class="info">
+						      	<h5>验证电子邮件信箱</h5>
+						      	<p>确保你留下的电子邮件信箱能正确联络上您，让交易能顺利完成</p>
+						    </div>
+					      </td>
+					      <td>
+					      	<button type="button" class="btn btn-danger btn-xs">进行确认</button>
+					      </td>
+					    </tr>
+					    <tr>
+					      <td>
+					      	<label class="checkbox-inline yahoo-checkbox">
+					      		<input class="checkbox" type="checkbox" value="1">
+					      		<i class="iconfont"></i>
+					      	</label>
+					      </td>
+					      <td>
+					      	<div class="info">
+						      	<h5>验证注册手机号</h5>
+						      	<p>认证后，您将可启用各种加值服务，来协助您更方便快速的拍到您想要的商品</p>
+						    </div>
+					      </td>
+					      <td>
+					      	<button type="button" class="btn btn-danger btn-xs">进行确认</button>
+					      </td>
+					    </tr>
+					  </tbody>
+					</table>
+				</div>
+				<div class="pc-panel box-shadow pc-address">
+					<h2 class="title">收货地址管理</h2>
+					<form action="#" class="pc-address-main">
+						<div class="pc-min-title">新增收货 <span style="margin-left: 5px;">带<span class="text-red">＊</span>号的均为必填项</span></div>
+						<div class="pc-from">
+							<div class="pc-from-item">
+								<label class="label"><span class="text-red">＊</span>收货人姓名：</label>
+								<input type="text" >
+								<span class="help">请务必填写真实姓名</span>
+							</div>
+							<div class="pc-from-item" data-toggle="distpicker">
+								<label class="label"><span class="text-red">＊</span>所在地区：</label>
+								<select data-province="浙江省" style="width: 90px;"></select>
+								<select data-city="杭州市" style="width: 90px;"></select>
+								<select data-district="西湖区" style="width: 100px;"></select>
+							</div>
+							<div class="pc-from-item">
+								<label class="label"><span class="text-red">＊</span>街道地址：</label>
+								<input type="text" style="width: 500px;">
+							</div>
+							<div class="pc-from-item">
+								<label class="label"><span class="text-red">＊</span>邮政编码：</label>
+								<input type="text" >
+								<span class="help">请填写正确，以加速邮件速度 <a style="color: blue" href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd=%E9%82%AE%E6%94%BF%E7%BC%96%E7%A0%81%E6%9F%A5%E8%AF%A2" target="_blank">邮政编码查询</a></span>
+							</div>
+							<div class="pc-from-item">
+								<label class="label"><span class="text-red">＊</span>手机号码：</label>
+								<input type="text" >
+								<span class="help">电话号码，手机号码必填一项</span>
+							</div>
+							<div class="pc-from-item">
+								<label class="label"><span class="text-red">＊</span>电话号码：</label>
+								<input type="text" >
+								<span class="help">区号－电话号码－分机</span>
+							</div>
+							<div class="pc-from-item">
+								<label class="label"></label>
+								<label class="checkbox-inline">
+						      		<input class="checkbox" type="checkbox" value="1">
+						      		设为默认
+						      	</label>
+							</div>
+							<div style="text-align: center;">
+								<button type="button" class="btn btn-danger btn-sm" style="width: 92px;">存储</button>
+							</div>
+						</div>
+					</form>
+					<p>已保存有效地址</p>
+					<table class="ui selectable table">
+					  <thead>
+					    <tr>
+					      <th>收货人</th>
+					      <th>所在地区</th>
+					      <th>街道地址</th>
+					      <th>邮编</th>
+					      <th>电话／手机</th>
+					      <th>默认</th>
+					      <th>操作</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td>
+					      	ynn
+					      </td>
+					      <td>
+					      	浙江省杭州市余杭区
+					      </td>
+
+					      <td>
+					      	仓前街道 瑜翠园
+					      </td>
+					      <td>317234</td>
+					      <td>
+					      	18767654567
+					      </td>
+					      <td>
+					      	<input type="radio" name="moren" value="1">
+					      </td>
+					      <td>
+					      	<button type="button" class="btn btn-danger btn-xs">删除</button>
+					      </td>
+					    </tr>
+					    <tr>
+					      <td>
+					      	ynn
+					      </td>
+					      <td>
+					      	浙江省杭州市余杭区
+					      </td>
+					      <td>
+					      	仓前街道 瑜翠园
+					      </td>
+					      <td>317234</td>
+					      <td>
+					      	18767654567
+					      </td>
+					      <td>
+					      	<input type="radio" name="moren" value="2">
+					      </td>
+					      <td>
+					      	<button type="button" class="btn btn-danger btn-xs">删除</button>
+					      </td>
+					    </tr>
+					  </tbody>
+					</table>
+					<p style="padding: 10px 0; color: #666;">最多保存10个有效地址</p>
+				</div>
+				<div class="pc-panel box-shadow pc-withdrawals">
+					<h2 class="title">提现管理</h2>
+					<form action="#" class="pc-withdrawals-main">
+						<h4>保证金退回</h4>
+						<p class="ifc">目前保证金余额：<span class="text-red">0</span>元、可退回保证金：<span class="text-red">0</span>元</p>
+						<p class="ifc">当保证金帐户余额低于人民币88元时，最高可出价金额为4999日元</p>
+						<p class="ifc"><button type="button" class="btn btn-sm" style="background-color: #8e8f90;color: #fff;">退回保证金</button><p>
+						<h4>帐户余额提现</h4>
+						<p class="accinfo">
+							<span>目前帐户余额：<span class="text-red">0</span>元</span>
+							<span style="margin-left: 5px;">可提现金额：<span class="text-red">0</span>元</span>
+						</p>
+						<p class="ptip">
+							为避免资金转入不明帐户引起的法律问题，提现时的收款人姓名需为委托人在本站申请的帐户之本人或当时汇入本站时所使用之银行账号，谢谢您的配合。<br/>
+							公司规定每天17:00统一作业，若您在17:00后才申请，将在隔天才能为您处理（如周五17:00后申请，则顺延至周一才能为您汇款，还请会员见谅！）<br/>
+							最高提现金额：当前帐户余额－（应付金额－已付金额）（暂无手续费）
+						</p>
+						<div class="pc-from">
+							<div class="pc-from-item">
+								<label class="label">提现银行名称：</label>
+								<select name="" id="">
+									<option value="1">工商银行</option>
+									<option value="1">北京银行</option>
+								</select>
+							</div>
+							<div class="pc-from-item">
+								<label class="label">银行帐户：</label>
+								<input type="text" >
+							</div>
+							<div class="pc-from-item">
+								<label class="label">户名：</label>
+								<input type="text" >
+							</div>
+							<div class="pc-from-item">
+								<label class="label">支行名称：</label>
+								<input type="text" >
+							</div>
+							<div class="pc-from-item">
+								<label class="label">退款金额：</label>
+								<input type="text" >
+								<span>(＊单次最多500)</span>
+							</div>
+						</div>
+						<div style="text-align: center;margin: 30px;">
+							<button type="button" class="btn btn-danger btn-sm">下一步</button>
+						</div>
+					</form>
+				</div>
+				<div class="pc-panel box-shadow pc-withdrawals">
+					<h2 class="title">提现管理</h2>
+					<div class="pc-withdrawals-main">
+						<p class="text-red" style="margin-top: 20px;">请确认您输入的转入账号是否正确，若有错误转出后本公司无法负责赔偿，请注意！</p>
+						<table class="ui table" style="width: 400px;text-align: center;margin: 15px auto;">
+							<tbody>
+								<tr>
+									<td width="147">银行名称：</td>
+									<td>北京银行</td>
+								</tr>
+								<tr>
+									<td>银行账号：</td>
+									<td>2346434543543534</td>
+								</tr>
+								<tr>
+									<td>支行名称：</td>
+									<td>西单支行</td>
+								</tr>
+								<tr>
+									<td>户名</td>
+									<td>陈小</td>
+								</tr>
+								<tr>
+									<td>退款金额</td>
+									<td>500元</td>
+								</tr>
+							</tbody>
+						</table>
+						<div style="text-align: center;">
+							<button type="button" class="btn btn-danger btn-sm">确认提现</button>
+							<button type="button" class="btn btn-default btn-sm">反回</button>
+						</div>
+					</div>
+				</div>
+				<div class="pc-panel box-shadow pc-bond">
+					<h2 class="title">保证金</h2>
+					<div class="bond-info">
+						<div class="hd clear">
+							<div class="ott">
+								您当前的保证金为：<span class="text-red">¥0.00</span>
+							</div>
+							<div class="oth">
+								<span class="text-red">+¥100</span>
+								就能尊享 特权哦！
+							</div>
+						</div>
+						<div class="level-icons">
+
+						</div>
+						<div class="level-tips">
+							<p>
+								温馨提示：保证金为不同竞拍用户的唯一区别，不同等级的保证金对应不同等级的竞拍账号，保证金等级越高，拍钟的几率越大！请确保您没有正在进行中的竞拍商品（竞拍中，竞拍成功，出价被超越，预约出价）和未完成支付尾款的订单，如存在则无法降级保证金。
+							</p>
+						</div>
+					</div>
+					<h2 class="title">选择帐户等级</h2>
+					<div class="bond-choose">
+						<table class="ui selectable table" style="text-align: center;margin: 5px 0 20px 0;">
+						  <thead>
+						    <tr>
+						      <th style="width: 85px;">选择</th>
+						      <th style="width: 100px;">等级</th>
+						      <th>保证金</th>
+						      <th>竞拍数量</th>
+						      <th>单次金额限制</th>
+						      <th>单次金额限制</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td>
+						      	当前等级
+						      </td>
+
+
+						      <td>
+						      	v1
+						      </td>
+						      <td>
+						      	<span class="text-red">¥0</span>
+						      </td>
+						      <td>
+						      	<span class="text-red">0个</span>
+						      </td>
+						      <td>
+						      	<span class="text-red">¥0</span>
+						      </td>
+						      <td>
+						      	<span class="text-red">¥0</span>
+						      </td>
+						    </tr>
+						    <tr>
+						      <td>
+						      	<input type="radio" class="js-tdkey">
+						      </td>
+
+						      <td>
+						      	v1
+						      </td>
+						      <td>
+						      	<span class="text-red">¥0</span>
+						      </td>
+						      <td>
+						      	<span class="text-red">0个</span>
+						      </td>
+						      <td>
+						      	<span class="text-red">¥0</span>
+						      </td>
+						      <td>
+						      	<span class="text-red">¥0</span>
+						      </td>
+						    </tr>
+						  </tbody>
+						</table>
+						<button type="button" class="btn btn-danger btn-sm">确定</button>
+					</div>
+				</div>
+				<div class="pc-panel box-shadow pc-recharge">
+					<h2 class="title">充值余额</h2>
+					<ul class="recharge-tab clear">
+						<li>
+							<a href="#">支付宝转账充值</a>
+						</li>
+						<li class="active">
+							<a href="#">银行转账充值</a>
+						</li>
+						<li class="active">
+							<a href="#">淘宝自动充值</a>
+						</li>
+						<li>
+							<a href="#">充值遇到问题请咨询：</a>
+						</li>
+					</ul>
+				</div>
+				<div class="pc-panel box-shadow pc-cashgift">
+					<h2 class="title">礼金券</h2>
+					<table class="ui selectable table" style="text-align: center;margin: 5px 0 20px 0;">
+						  <thead>
+						    <tr>
+						      <th>面额（CNY）</th>
+						      <th>使用要求</th>
+						      <th>有效截止日期</th>
+						      <th>使用状态</th>
+						      <th>获得类型</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td>
+						      	<span class="text-red">5</span>元
+						      </td>
+						      <td>
+						      	<span class="text-gray">全站：无任何限制</span>
+						      </td>
+						      <td>
+						      	<span class="text-red">已过期</span>
+						      </td>
+						      <td>
+						      	<span class="text-green">未使用</span>
+						      </td>
+						      <td>
+						      	<span class="text-gray">注册有礼</span>
+						      </td>
+
+						    </tr>
+						 </tbody>
+						</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	@@include('./_include/footer.inc')
+<script src="../Public/js/personal-center.js"></script>
+</body>
+</html>

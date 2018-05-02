@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+@@include('./_include/header.inc')
+<body>
+  <div class="auth-bar">
+    <div class="auth-bar-inner clear">
+      <a href="#" class="auth-logo">
+        <img height="85" src="../Public/images/logo_01.png" />
+      </a>
+      <a href="#" class="auth-link">返回首页</a>
+    </div>
+  </div>
+  <div class="auth-main">
+    <div class="auth-wrap" style="background-image: url(http://www.rigouwang.com/Public/images/other/user-login_bg.png); background-position: 0 -120px;">
+      <div class="auth-box">
+        <div class="auth-nav clear">
+          <a href="#" class="login-link active">会员登录</a>
+          <a href="#" class="register-link">免费注册</a>
+        </div>
+        <form class="auth-form" id="authFrom">
+          <div class="auth-form-div">
+            <div class="auth-form-item">
+              <input placeholder="✱请输入您的账号" class="js-account"/>
+            </div>
+            <div class="auth-form-item">
+              <input placeholder="✱请输入您的密码" class="js-password"/>
+            </div>
+            <div class="auth-form-item verify-div">
+              <input placeholder="✱请输入验证码" class="js-verify"/>
+              <img class="js-codeVerifyImg" src="http://www.rigouwang.com/Home/Public/Verify" data-url="http://www.rigouwang.com/Home/Public/Verify/"/>
+            </div>
+            <div class="auth-form-logohelp clear">
+              <div class="hp">
+                <i class="checkboximg"><input type="checkbox"></i>
+                记住密码
+              </div>
+              <div class="hp"><a href="#">忘记密码</a></div>
+            </div>
+          </div>
+          <button class="auth-submit js-loginSubmit" type="button">登录</button>
+        </form>
+        <div>
+          <div class="other-title">———— 使用社交账号直接登录 ————</div>
+          <div class="other-div clear">
+						<a href="#"><img src="../Public/images/WEIXIN_13.png"></a>
+						<a href="#"><img src="../Public/images/QQ_13.png"></a>
+					</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="auth-footer">
+    <p>Copyright © 2018 吉拍猫 All rights reserved, 浙ICP备18006697号</p>
+  </div>
+  <script src="../Public/js/auth.js"></script>
+</body>
+</html>

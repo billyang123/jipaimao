@@ -1,7 +1,9 @@
 import $ from 'jquery';
+window.jQuery = $;
 import store from './store.js';
 import 'ui/scroll.js'
 import './helper.js'
+import '../lib/layer.js'
 var getEnv = function() {
 	if (window.location.protocol == 'file:') {
 		return 'file'

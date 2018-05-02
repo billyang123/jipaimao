@@ -35,6 +35,7 @@ module.exports = {
     resolve: {
         alias: {
             jquery: srcDir + "/Public/js/lib/jquery.min.js",
+            layer: srcDir + "/Public/js/lib/layer.min.js",
             core: srcDir + "/Public/js/core",
             ui: srcDir + "/Public/js/ui",
             tpl: srcDir + "/Public/js/tpl",
@@ -54,6 +55,10 @@ module.exports = {
         { test: /\.jpg/, loader: "file-loader" },
         { test: /\.png/, loader: "url-loader?mimetype=image/png" },
         { test: /\.gif/, loader: "url-loader?mimetype=image/gif" },
+        {
+          test: /\.css$/,
+          loaders: 'style-loader!css-loader'
+        },
         {
           test: /\.js/,
           loader: 'babel-loader',

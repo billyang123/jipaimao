@@ -1,0 +1,174 @@
+.auth-bar {
+  height: 85px;
+  background-color: #fff;
+  &-inner {
+    margin: 0 auto;
+    width: 1200px;
+    .auth-link {
+      float: right;
+      margin: 35px 0;
+    }
+  }
+}
+.auth-nav {
+  border: 1px solid #fff;
+  min-height: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  a {
+    display: block;
+    height: 100%;
+    width: 50%;
+    float: left;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    &.active {
+      background: white;
+      color: #F39605;
+      &.register-link {
+        border-radius: 0 3px 3px 0;
+      }
+      &.login-link {
+        border-radius: 3px 0 0 3px;
+      }
+    }
+  }
+}
+.auth-wrap {
+  background-repeat: no-repeat;
+  height: 620px;
+  margin: 0 auto;
+  width: 1200px;
+  position: relative;
+}
+.auth-main {
+  background: #f39a02;
+  height: 620px;
+}
+.auth-box {
+  width: 350px;
+  position: absolute;
+  left: 716px;
+  top: 30px;
+  .gree-div {
+    line-height: 30px;
+    padding: 0 20px;
+  }
+  .checkboximg {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: url(../images/login-check.png) no-repeat;
+    background-position: 0px -25px;
+    position: relative;
+    top: 6px;
+    input {
+      visibility: hidden;
+      opacity: 0;
+    }
+    &.checked {
+      background-position: 0px 1px;
+    }
+  }
+  .other-title {
+    height: 20px;
+    min-height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+  }
+  .other-div {
+    margin-bottom: 10px;
+    a {
+      display: block;
+      height: 100%;
+      width: 50%;
+      float: left;
+      line-height: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      border-radius: 5px;
+    }
+  }
+}
+.auth-form {
+  &-div {
+    background: #FADA9D;
+    padding: 10px 0;
+    min-height: 30px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  .auth-submit {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    display: block;
+    background: #FF7105;
+    line-height: 40px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    min-height: 30px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  &-logohelp {
+    padding: 5px 20px;
+    .hp {
+      float: left;
+      width: 50%;
+      text-align: center;
+      line-height: 30px;
+    }
+  }
+  &-item {
+    height: 33px;
+    line-height: 33px;
+    margin: 10px 20px;
+    border: 1px solid dimgray;
+    &.verify-div {
+      width: 53%;
+      img {
+        position: relative;
+        top: -35px;
+        left: 196px;
+        cursor: pointer;
+      }
+    }
+    .codebutton {
+      background: #FF7105;
+      float: right;
+      height: 33px;
+      width: 40%;
+      line-height: 33px;
+      text-align: center;
+      cursor: pointer;
+      color: #fff;
+    }
+    input {
+      border: none;
+      border: 0;
+      outline: none;
+      width: 85%;
+      height: 22px;
+      padding: 0 5px;
+      margin: 0 5px;
+      background: #FADA9D;
+    }
+  }
+}
+.auth-footer {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+}

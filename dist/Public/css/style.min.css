@@ -2934,10 +2934,11 @@ body .btn-xs {
 .auth-bar-inner {
   margin: 0 auto;
   width: 1200px;
+  padding-top: 12px;
 }
 .auth-bar-inner .auth-link {
   float: right;
-  margin: 35px 0;
+  margin: 24px 0;
 }
 .auth-nav {
   border: 1px solid #fff;

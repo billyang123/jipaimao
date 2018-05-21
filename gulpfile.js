@@ -213,8 +213,12 @@ gulp.task("ftp", function(callback) {
         }));
 });
 
+gulp.task('copydist', function(done) {
+  gulp.src(['dist/**/*']).pipe(gulp.dest('../myzlink')).on('end', done);
+});
+
 //发布
-gulp.task('default', ['connect', 'fileinclude', 'md5:css', 'md5:js', 'open']);
+gulp.task('default', ['connect', 'fileinclude', 'md5:css', 'md5:js', 'open', 'copydist']);
 
 //开发
-gulp.task('dev', ['connect', 'copy:images', 'copy:mock', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open']);
+gulp.task('dev', ['connect', 'copy:images', 'copy:mock', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open', 'copydist']);

@@ -115,21 +115,10 @@ const siteInit = () => {
 		$('[data-rate]').data('rate', res.rates.CNY);
 		$('.site-nav-bd-hl').html(`今日汇率：1日元＝${res.rates.CNY}RMB`)
 	})
-	$.ajax({
-		url:'/api/announce.html',
-		dataType: 'json',
-		success(res) {
-			let data = res.data;
-			let strs = data.map((item) => {
-				return `<li><a href="#">${item.title}</a></li>`
-			})
-			$('.js-scorll-text ul').html(strs.join(''));
-			$(".js-scorll-text").myScroll({
-				speed:1000, //数值越大，速度越慢
-				rowHeight:36 //li的高度
-			});
-		}
-	})
+	$(".js-scorll-text").myScroll({
+		speed:1000, //数值越大，速度越慢
+		rowHeight:36 //li的高度
+	});
 	$('#J_YSearchForm').find('')
 }
 const getRates = (callback, config = {symbols: 'CNY', base: 'JPY'}) => {

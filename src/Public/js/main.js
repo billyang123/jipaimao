@@ -2,13 +2,6 @@ import $ from 'jquery';
 import countDown from 'ui/countDown.js'
 import {ajax, getCategory} from 'core/utils.js'
 import calculation from 'ui/calculation.js';
-
-import yahooPromoTmp from './tpl/index/yahooPromo.hbs';
-import indexHotItemsTmp from './tpl/index/indexHotItems.hbs';
-import indexItemTmp from './tpl/index/indexItem.hbs';
-import yahooServiceTmp from './tpl/yahooService.hbs';
-
-
 window.$  = window.jQuery = $;
 function slideFn() {
     /** Main Slider **/
@@ -73,97 +66,9 @@ var mainPage = function() {
 }
 mainPage.prototype = {
   init() {
-    getCategory((cats) => {
-      $('#yahooService').html(yahooServiceTmp({data:cats}));
-      yahooServiceInit();
-    })
-    this.getBanner();
-    this.getBtBanner();
-    this.getHotId();
-  },
-  getBanner() {
-    ajax({
-      url: '/api/banner/c/9.html',
-      dataType: 'json',
-      success(res) {
-        $('#PromoSlide').html(yahooPromoTmp(res));
-        slideFn();
-      }
-    })
-  },
-  getBtBanner() {
-    ajax({
-      url: '/api/banner/c/10.html',
-      dataType: 'json',
-      success(res) {
-        const strs = res.data.map((item) => {
-          return `<li><a href="${item.url}"><img src="http://jp.freedaigou.cn/Uploads/pic/ad/${item.img}" alt="${item.title}"></a></li>`
-        })
-        $('#sellerRecommended ul').html(strs.join(''))
-      }
-    })
-  },
-  gethotcat(proIds) {
-    var proIds = {};
-    var _this = this;
-    ajax({
-      url: '/api/hotcat.html',
-      dataType: 'json',
-      success(res) {
-        const _data = res.data || [];
-        let strs = '';
-        // _this.proAllIds = ['w145409337'];
-        const result = _data.map((item) => {
-          item.productIds = _this.proIds[item.id];
-          // item.productIds = ['w145409337']
-          return item;
-        })
-        $('#productRecommended').html(
-          indexHotItemsTmp({data: result})
-        );
-        _this.getItems(_this.proAllIds.join(','));
-      }
-    })
-  },
-  getHotId() {
-    let proIds = {};
-    let _this = this;
-    ajax({
-      url: '/api/hotid.html',
-      dataType: 'json',
-      success(res) {
-        const _data = res.data;
-        if (_data) {
-          _this.proAllIds = _data.map((item) => {
-            if (!_this.proIds[item.type_id]) _this.proIds[item.type_id] = [];
-            _this.proIds[item.type_id].push(item.product_id);
-            return item.product_id;
-          })
-        }
-        _this.gethotcat(proIds)
-      }
-    })
-  },
-  getItems(itemIds, callback) {
-    ajax({
-      url: '/spider/api/',
-      dataType: 'json',
-      type: 'post',
-      data: {
-        op: '001019',
-        item: itemIds
-      },
-      success(res) {
-        if(!res.data) return;
-        $.each(res.data, (index, item) => {
-          $(`#productRecommended [data-id=${item.item_id}]`).html(
-            indexItemTmp(item)
-          )
-        })
-        $('[data-countdown]').countdown();
-        callback && callback()
-      }
-    })
+    yahooServiceInit();
+    slideFn();
+    $('[data-countdown]').countdown();
   }
 };
 new mainPage();
